@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Themed/monochrome variant matching ic_launcher_foreground.xml's horizon+half-sun shape. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:pathData="M32.25,47.86 L24.09,44.05 M37.63,40.45 L31.49,33.86 M45.4,35.59 L42.17,27.19 M54,34 L54,25 M62.6,35.59 L65.83,27.19 M70.37,40.45 L76.51,33.86 M75.75,47.86 L83.91,44.05" />
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M32,58 A22,22 0 0 1 76,58 Z" />
+</vector>

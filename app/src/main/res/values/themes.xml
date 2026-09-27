@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.DayStart" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:colorPrimary">#E85D04</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+
+    <!-- Back-compat -->
+    <style name="Theme.LoudWake" parent="Theme.DayStart" />
+
+    <!-- Shown while MainActivity cold-starts; core-splashscreen backports this to API 21+. -->
+    <style name="Theme.DayStart.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/ic_launcher_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_sol</item>
+        <item name="postSplashScreenTheme">@style/Theme.DayStart</item>
+    </style>
+</resources>

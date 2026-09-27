@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Adaptive icon background — deep ink, adult / non-cartoon -->
+    <color name="ic_launcher_background">#121213</color>
+</resources>

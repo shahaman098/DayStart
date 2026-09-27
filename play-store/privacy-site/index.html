@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DayStart Privacy Policy</title>
+  <meta name="description" content="Privacy policy for the DayStart Android alarm app." />
+  <style>
+    :root {
+      --ink: #1c2430;
+      --muted: #5a6573;
+      --accent: #e85d04;
+      --sky: #7eb6ff;
+      --peach: #ffc38a;
+      --cream: #ffe8d2;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      line-height: 1.65;
+      background:
+        linear-gradient(180deg, var(--sky) 0%, var(--peach) 45%, var(--cream) 100%) fixed;
+    }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 22px;
+      padding: 28px 24px;
+      backdrop-filter: blur(10px);
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+      letter-spacing: -0.03em;
+    }
+    .meta { color: var(--muted); margin: 0 0 28px; font-size: 0.95rem; }
+    h2 {
+      margin: 28px 0 10px;
+      font-size: 1.15rem;
+      color: var(--accent);
+    }
+    p, li { color: var(--ink); }
+    ul { padding-left: 1.2rem; }
+    a { color: var(--accent); }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.9em;
+      background: rgba(28, 36, 48, 0.06);
+      padding: 0.1em 0.35em;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="card">
+      <h1>DayStart Privacy Policy</h1>
+      <p class="meta">
+        App: DayStart (<code>com.loudwake.app</code>)<br />
+        Last updated: 23 July 2026
+      </p>
+
+      <p>
+        DayStart is an Android alarm clock app. Its core purpose is to schedule wake-up alarms,
+        present wake challenges, and help you stay awake after the alarm. This policy explains
+        what the app accesses on your device and how that information is handled.
+      </p>
+
+      <h2>1. Summary</h2>
+      <ul>
+        <li>Alarm settings and wake sessions are stored <strong>locally on your device</strong>.</li>
+        <li>We do <strong>not</strong> operate accounts, analytics SDKs, ad networks, or our own cloud backends for this app.</li>
+        <li>Optional <strong>Voice set</strong> uses your device’s speech recognition (often provided by Google). That audio may be processed by Google’s speech services according to Google’s terms — DayStart does not upload recordings to a DayStart server.</li>
+        <li>Camera photos used for optional Wake Gate challenges are processed <strong>on-device</strong> with Google ML Kit and are <strong>never uploaded</strong> by DayStart.</li>
+      </ul>
+
+      <h2>2. Data the app stores on your device</h2>
+      <p>DayStart stores locally (using Android SharedPreferences and temporary files):</p>
+      <ul>
+        <li>Alarm times, names, repeat rules, sound choices, voice-coach settings, and wake-mode settings</li>
+        <li>Whether an alarm is enabled</li>
+        <li>Current wake / Relapse Guard session state</li>
+        <li>Temporary photo files used only for on-device challenge verification</li>
+      </ul>
+      <p>This data stays on your device unless you back up your phone with your own backup tools.</p>
+
+      <h2>3. Permissions and why they are requested</h2>
+      <ul>
+        <li><strong>Exact alarms</strong> — required so wake-up alarms fire at the scheduled time. DayStart is an alarm/clock app.</li>
+        <li><strong>Notifications &amp; full-screen intent</strong> — to show the alarm and wake UI even when the phone is locked or another app is open.</li>
+        <li><strong>Foreground service (media playback)</strong> — to play the alarm tone while audio is actively playing during a wake session.</li>
+        <li><strong>Vibrate / modify audio / Do Not Disturb access</strong> — so the alarm can be heard and felt as configured.</li>
+        <li><strong>Boot completed</strong> — to reschedule alarms after reboot or app update.</li>
+        <li><strong>Battery optimization exemption (optional, user-approved)</strong> — Android may delay or kill background work. Allowing unrestricted battery helps alarms and Relapse Guard remain reliable. You can decline.</li>
+        <li><strong>Microphone</strong> — only for optional <strong>Voice set</strong> (creating alarms by speaking). Speech is handled by the system speech recognizer; DayStart does not keep a cloud copy of your voice on its own servers.</li>
+        <li><strong>Camera</strong> — only for optional Wake Gate photo challenges. Photos are analyzed on-device and are not sent to us.</li>
+        <li><strong>Activity recognition / physical activity</strong> — optional movement-based wake challenges; stays on-device.</li>
+      </ul>
+
+      <h2>4. Photos and on-device processing</h2>
+      <p>
+        If you use a camera challenge, DayStart may capture a photo and run on-device image labeling
+        (Google ML Kit) to check whether the scene matches the challenge.
+        The model runs locally. Photos are not uploaded by DayStart, not shared by us, and not used for advertising.
+        Temporary image files may be created for verification and can be cleared with app data.
+      </p>
+
+      <h2>5. Voice set and speech recognition</h2>
+      <p>
+        If you use Voice set, DayStart starts the Android speech recognition UI so you can dictate alarm dates and times.
+        Recognition is performed by the device / Google speech services (depending on your phone and settings).
+        DayStart uses the resulting text locally to create alarms. We do not operate a DayStart speech server.
+      </p>
+
+      <h2>6. Data we do not collect</h2>
+      <ul>
+        <li>No account registration</li>
+        <li>No email, name, or contact list collection by DayStart</li>
+        <li>No location tracking for advertising</li>
+        <li>No sale of personal data</li>
+        <li>No third-party advertising SDKs in the app</li>
+      </ul>
+
+      <h2>7. Children</h2>
+      <p>
+        DayStart is a general-audience alarm utility. It is not directed at children under 13.
+        Do not use the camera challenges to photograph other people without their permission.
+      </p>
+
+      <h2>8. Your choices</h2>
+      <ul>
+        <li>You can deny Microphone, Camera, or Activity permissions; related features will not work until granted.</li>
+        <li>You can keep battery optimization enabled; alarm reliability may vary by manufacturer.</li>
+        <li>You can clear app storage or uninstall DayStart to remove local data.</li>
+      </ul>
+
+      <h2>9. Changes</h2>
+      <p>
+        If this policy changes in a material way, we will update the “Last updated” date on this page
+        and, when required, note the change in the Play Store listing.
+      </p>
+
+      <h2>10. Contact</h2>
+      <p>
+        For privacy questions about DayStart, email
+        <a href="mailto:amanshah0844@gmail.com">amanshah0844@gmail.com</a>.
+        You can also use the contact email on the DayStart Google Play listing.
+      </p>
+    </div>
+  </main>
+</body>
+</html>

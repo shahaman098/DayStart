@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DayStart</string>
+    <string name="alarm_channel_name">DayStart Wake</string>
+    <string name="alarm_channel_description">Wake alarm and Relapse Guard</string>
+    <string name="safe_silence_toast">Muted 60s — alarm will return.</string>
+    <string name="wake_complete_toast">Wake Gate cleared. Relapse Guard next.</string>
+    <string name="relapse_cleared_toast">Morning done. Stay up.</string>
+    <string name="relapse_restart_toast">Relapse — chase restarting.</string>
+    <string name="stopped_toast">Stopped. Alarm and sound are off.</string>
+    <string name="battery_rationale_title">Allow unrestricted battery?</string>
+    <string name="battery_rationale_body">DayStart is an alarm clock. Android battery savers can delay or silence wake-ups and Relapse Guard. Allowing unrestricted battery keeps alarms reliable. Movement data stays on this device — nothing is uploaded. You can change this later if alarms miss.</string>
+    <string name="battery_rationale_allow">Allow for reliable alarms</string>
+    <string name="battery_rationale_not_now">Not now</string>
+    <string name="battery_banner">Battery saver may block alarms — tap to allow</string>
+    <string name="exact_alarm_banner">Exact alarms off — tap to allow</string>
+    <string name="dnd_banner">Grant Do Not Disturb access so alarms can break through Total Silence — tap to allow</string>
+    <string name="privacy_policy_url">https://daystart-privacy.pages.dev/</string>
+    <string name="developer_support_email">amanshah0844@gmail.com</string>
+    <string name="about_title">About DayStart</string>
+    <string name="about_privacy">Privacy policy</string>
+    <string name="about_credits">Alarm tones include Mixkit sound effects (Mixkit License).</string>
+    <string name="cd_add_alarm">Add alarm</string>
+    <string name="cd_voice_set">Voice set — create alarms by speaking</string>
+    <string name="cd_voice_set_short">Voice set</string>
+    <string name="empty_alarms_hint">No alarms yet. Tap + to add one.</string>
+    <string name="alarm_tab_title">Alarm</string>
+    <string name="no_alarms_scheduled">No alarms set</string>
+    <string name="fix_alarm_permissions">Alarm permissions</string>
+    <string name="pref_label">Label</string>
+    <string name="pref_repeat">Repeat</string>
+    <string name="pref_wake_mode">Wake mode</string>
+    <string name="pref_sound">Sound</string>
+    <string name="pref_voice">Voice coach</string>
+    <string name="pref_phrase">Wake phrase</string>
+    <string name="pref_test">Preview wake gate</string>
+    <string name="pref_delete">Delete</string>
+</resources>
