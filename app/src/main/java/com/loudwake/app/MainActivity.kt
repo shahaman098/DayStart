@@ -100,6 +100,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.loudwake.app.BuildConfig
+import com.loudwake.app.billing.DayStartBilling
+import com.loudwake.app.billing.PaywallDialog
+import com.loudwake.app.billing.PremiumGate
 import com.loudwake.app.data.AlarmItem
 import com.loudwake.app.data.AlarmTone
 import com.loudwake.app.data.DayStartStore
@@ -208,6 +211,8 @@ class MainActivity : ComponentActivity() {
                         !batteryOk && !DayStartStore.isBatteryPromptDismissed(activity)
                     )
                 }
+                var isPremium by remember { mutableStateOf(DayStartBilling.isPremium) }
+                var showPaywall by remember { mutableStateOf(false) }
 
                 fun refreshHome() {
                     alarms = DayStartStore.alarms(activity)
@@ -216,6 +221,7 @@ class MainActivity : ComponentActivity() {
                     batteryOk = isBatteryUnrestricted()
                     dndOk = isDndAccessGranted()
                     if (batteryOk) showBatteryRationale = false
+                    DayStartBilling.refreshCustomerInfo { isPremium = it }
                 }
 
                 fun applyVoiceTranscript(transcript: String) {
@@ -304,6 +310,16 @@ class MainActivity : ComponentActivity() {
                     )
                 }
 
+                if (showPaywall) {
+                    PaywallDialog(
+                        onDismiss = { showPaywall = false },
+                        onPurchased = {
+                            isPremium = true
+                            showPaywall = false
+                        }
+                    )
+                }
+
                 if (voiceTranscript != null && voiceParsed.isNotEmpty()) {
                     VoiceSetConfirmDialog(
                         transcript = voiceTranscript!!,
@@ -355,6 +371,8 @@ class MainActivity : ComponentActivity() {
                             AlarmEditorScreen(
                                 initial = editing ?: AlarmItem(),
                                 isNew = creating,
+                                isPremium = isPremium,
+                                onRequestPremium = { showPaywall = true },
                                 onPreviewTone = { t, uri ->
                                     tonePlayer?.preview(t, systemUri = uri)
                                 },
@@ -418,7 +436,13 @@ class MainActivity : ComponentActivity() {
                                     refreshHome()
                                 },
                                 onEdit = { editing = it },
-                                onCreate = { creating = true },
+                                onCreate = {
+                                    if (PremiumGate.canAddAlarm(alarms.size, isPremium)) {
+                                        creating = true
+                                    } else {
+                                        showPaywall = true
+                                    }
+                                },
                                 onVoiceSet = { beginVoiceSet() },
                                 onOpenGate = {
                                     WakeEngine.openGate(activity)
@@ -1104,6 +1128,8 @@ private fun HomeScreen(
 private fun AlarmEditorScreen(
     initial: AlarmItem,
     isNew: Boolean,
+    isPremium: Boolean,
+    onRequestPremium: () -> Unit,
     onPreviewTone: (AlarmTone, String?) -> Unit,
     onTest: (AlarmItem) -> Unit,
     onSave: (AlarmItem) -> Unit,
@@ -1311,8 +1337,13 @@ private fun AlarmEditorScreen(
                 ) {
                     WakeMode.entries.forEach { m ->
                         Chip(m.title, mode == m) {
-                            mode = m
-                            showModePicker = false
+                            if (PremiumGate.requiresPremium(m) && !isPremium) {
+                                showModePicker = false
+                                onRequestPremium()
+                            } else {
+                                mode = m
+                                showModePicker = false
+                            }
                         }
                     }
                 }
